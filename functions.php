@@ -1,5 +1,5 @@
 <?php
 
-function double($number) {
-    
+function double(int $number): int {
+    return $number * 2;
 }
