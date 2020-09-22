@@ -35,7 +35,6 @@ function displayResult($result): string {
     $color = isset($typeColor[$type]) ? $typeColor[$type] : 'dark';
 
     return '<span class="badge badge-' . $color . '">' . $type . '</span> ' . var_export($result, true);
-    // return preg_replace('/^(\w+)\((.+)\)/', '<span class="muted">\1(</span>\2<span class="muted">)</span>', var_export($result));
 }
 
 function executeTests($tests): void { ?>
@@ -50,7 +49,7 @@ function executeTests($tests): void { ?>
         <tbody>
             <?php foreach ($tests as $testCase): ?>
             <tr>
-                <td><pre><?= $testCase->funcName . '(' . implode(', ', $testCase->parameters) . ')' ?></pre></td>
+                <td><pre><code><?= $testCase->funcName . '(' . implode(', ', array_map(fn($item) => var_export($item, true), $testCase->parameters)) . ')' ?></code></pre></td>
                 <td><?= displayResult($testCase->result()) ?></td>
                 <td><?= displayResult($testCase->expectedResult) ?></td>
             </tr>
@@ -60,7 +59,7 @@ function executeTests($tests): void { ?>
 <?php }
 
 function testFunction(string $funcName, array $tests): void { ?>
-    <h2 class="mt-4 mb-2">Fonction "double"</h2>
+    <h2 class="mt-4 mb-2">Fonction "<?= $funcName ?>"</h2>
 
     <?php if (function_exists($funcName)) {
         executeTests($tests);
@@ -74,4 +73,18 @@ testFunction('double', [
     new TestCase(8, 'double', [4]),
     new TestCase(200, 'double', [100]),
     new TestCase(-14, 'double', [-7])
+]);
+
+testFunction('doubleArray', [
+    new TestCase([0, 2, 4], 'doubleArray', [[0, 1, 2]]),
+    new TestCase([20], 'doubleArray', [[10]]),
+    new TestCase([-6, -20], 'doubleArray', [[-3, -10]]),
+    new TestCase([], 'doubleArray', [[]]),
+]);
+
+testFunction('parseAction', [
+    new TestCase(['look'], 'parseAction', ['look']),
+    new TestCase(['open', 'door'], 'parseAction', ['open door']),
+    new TestCase(['attack', 'troll'], 'parseAction', ['attack troll']),
+    new TestCase(null, 'parseAction', [''])
 ]);
