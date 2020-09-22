@@ -75,11 +75,25 @@ testFunction('double', [
     new TestCase(-14, 'double', [-7])
 ]);
 
+testFunction('times', [
+    new TestCase(0, 'times', [0, 5]),
+    new TestCase(5, 'times', [1, 5]),
+    new TestCase(300, 'times', [100, 3]),
+    new TestCase(-7, 'times', [-1, 7])
+]);
+
 testFunction('doubleArray', [
     new TestCase([0, 2, 4], 'doubleArray', [[0, 1, 2]]),
     new TestCase([20], 'doubleArray', [[10]]),
     new TestCase([-6, -20], 'doubleArray', [[-3, -10]]),
     new TestCase([], 'doubleArray', [[]]),
+]);
+
+testFunction('customInArray', [
+    new TestCase(true, 'customInArray', [[0, 1, 2], 2]),
+    new TestCase(false, 'customInArray', [[0, 1, 2], 10]),
+    new TestCase(true, 'customInArray', [['Bonjour', 'Salut', 'Coucou'], 'Bonjour']),
+    new TestCase(false, 'customInArray', [[], 'Bonjour']),
 ]);
 
 testFunction('parseAction', [
