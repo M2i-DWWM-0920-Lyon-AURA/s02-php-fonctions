@@ -102,3 +102,10 @@ testFunction('parseAction', [
     new TestCase(['attack', 'troll'], 'parseAction', ['attack troll']),
     new TestCase(null, 'parseAction', [''])
 ]);
+
+testFunction('sumArray', [
+    new TestCase(6, 'sumArray', [[1, 2, 3]]),
+    new TestCase(0, 'sumArray', [10, 0, -10]),
+    new TestCase(5, 'sumArray', [5]),
+    new TestCase(0, 'sumArray', [])
+]);

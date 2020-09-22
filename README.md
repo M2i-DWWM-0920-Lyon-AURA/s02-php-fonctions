@@ -20,6 +20,10 @@ L'objectif de cet exercice est d'écrire pour chaque cas, la fonction qui répon
 
 > Note: cette fonction reproduit le comportement de la fonction PHP native `in_array`, il s'agit de trouver comment la coder soi-même!
 
-## Fonction 'parseAction'
+## Fonction `parseAction`
 
 **Entrée**: une chaîne de caractères de forme "verbe sujet" => **Sortie**: un tableau contenant ["verbe", "sujet"].
+
+## Fonction `sumArray`
+
+**Entrée**: un tableau de nombres => **Sortie**: la somme de tous les nombres dans le tableau.
