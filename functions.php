@@ -9,15 +9,32 @@ function times(int $number1, int $number2): int {
 }
 
 function doubleArray(array $array): array {
-    // Créer un nouveau tableau
+    // Crée un nouveau tableau
     $result = [];
     // Pour chaque élément du tableau reçu en paramètre
     foreach ($array as $number) {
-        // Multiplier cet élément par 2
+        // Multiplie cet élément par 2
         $number = $number * 2;
         // Stocker le résultat dans le nouveau tableau
         array_push($result, $number);
     }
-    // Renvoyer le nouveau tableau
+    // Renvoie le nouveau tableau
     return $result;
+}
+
+function customInArray($array, $item) {
+    // Pour chaque élément du tableau
+    foreach ($array as $arrayItem) {
+        // Si cet élément est le même que l'élément recherché
+        if ($item === $arrayItem) {
+            // Interrompt la fonction et renvoie vrai
+            return true;
+        }
+    }
+    // Si on arrive à ce point de l'algorithme, c'est que le tablreau
+    // entier a été parcouru et donc que la valeur recherchée
+    // n'a été trouvée nulle part
+    
+    // Interrompt la fonction et renvoie faux
+    return false;
 }
