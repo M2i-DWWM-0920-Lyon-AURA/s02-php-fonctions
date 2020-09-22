@@ -34,7 +34,18 @@ function customInArray($array, $item) {
     // Si on arrive à ce point de l'algorithme, c'est que le tablreau
     // entier a été parcouru et donc que la valeur recherchée
     // n'a été trouvée nulle part
-    
+
     // Interrompt la fonction et renvoie faux
     return false;
+}
+
+function parseAction(string $command): ?array {
+    // Si la commande est vide
+    if (empty($command)) {
+        // Interrompt la fonction et renvoie null
+        return null;
+    }
+    // Renvoie un tableau correspondant au découpage de la commande
+    // par espaces
+    return explode(' ', $command);
 }
