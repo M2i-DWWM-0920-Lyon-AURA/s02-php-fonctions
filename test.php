@@ -105,7 +105,22 @@ testFunction('parseAction', [
 
 testFunction('sumArray', [
     new TestCase(6, 'sumArray', [[1, 2, 3]]),
-    new TestCase(0, 'sumArray', [10, 0, -10]),
+    new TestCase(0, 'sumArray', [[10, 0, -10]]),
     new TestCase(5, 'sumArray', [5]),
     new TestCase(0, 'sumArray', [])
+]);
+
+testFunction('isPasswordStrong', [
+    new TestCase(true, 'isPasswordStrong', ['Bonjour123']),
+    new TestCase(false, 'isPasswordStrong', ['Bonjour']),
+    new TestCase(false, 'isPasswordStrong', ['BonjourToutLeMonde']),
+    new TestCase(true, 'isPasswordStrong', ['12345678'])
+]);
+
+testFunction('getPasswordStrength', [
+    new TestCase("Trop faible", 'getPasswordStrength', ['bonjour']),
+    new TestCase("Faible", 'getPasswordStrength', ['Bonjour']),
+    new TestCase("Moyen", 'getPasswordStrength', ['BonjourToi']),
+    new TestCase("Fort", 'getPasswordStrength', ['Bonjour123']),
+    new TestCase("Fort", 'getPasswordStrength', ['BonjourToutLeMonde'])
 ]);
