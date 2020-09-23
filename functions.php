@@ -72,11 +72,11 @@ function getPasswordStrength(string $password): string {
         // $score = $score + 1;
         // $score += 1;
         $score ++;
-    }
-    // Si le mot de passe contient au moins 13 caractères
-    if (strlen($password) >= 13) {
-        // Ajoute 1 au score
-        $score ++;
+        // Si le mot de passe contient au moins 13 caractères
+        if (strlen($password) >= 13) {
+            // Ajoute 1 au score
+            $score ++;
+        }
     }
     // Si le mot de passe contient au moins un chiffre
     if (preg_match('/\d/', $password)) {
