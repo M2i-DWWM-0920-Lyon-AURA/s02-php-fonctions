@@ -49,3 +49,23 @@ function parseAction(string $command): ?array {
     // par espaces
     return explode(' ', $command);
 }
+
+function isPasswordStrong(string $password): bool {
+    // Si le mot de passe contient au moins 8 caractères
+    if (strlen($password) < 8) {
+        // Interrompt la fonction et renvoie faux
+        return false;
+    }
+    // Découpe le mot de passe dans un tableau caractère par caractère
+    $characters = str_split($password);
+    // Pour chaque caractère du mot de passe
+    foreach ($characters as $character) {
+        // Si le caractère est un chiffre
+        if (is_numeric($character)) {
+            // Interrompt la fonction et renvoie vrai
+            return true;
+        }
+    }
+    // Interrompt la fonction et renvoie faux
+    return false;
+}
