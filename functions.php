@@ -52,14 +52,14 @@ function parseAction(string $command): ?array {
 
 function isPasswordStrong(string $password): bool {
     // Si le mot de passe contient au moins 8 caractères
-    if (strlen($password) < 8) {
-        // Interrompt la fonction et renvoie faux
-        return false;
-    }
-    // Si le mot de passe contient au moins un chiffre
-    if (preg_match('/\d/', $password)) {
+    // et qu'il contient au moins un chiffre
+    if (strlen($password) >= 8 && preg_match('/\d/', $password)) {
+        // Interrompt la fonction et renvoie vrai
         return true;
     }
     // Interrompt la fonction et renvoie faux
     return false;
 }
+
+// &&
+// ||
