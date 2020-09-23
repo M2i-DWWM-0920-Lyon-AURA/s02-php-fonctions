@@ -27,3 +27,11 @@ L'objectif de cet exercice est d'écrire pour chaque cas, la fonction qui répon
 ## Fonction `sumArray`
 
 **Entrée**: un tableau de nombres => **Sortie**: la somme de tous les nombres dans le tableau.
+
+## Fonction `isPasswordStrong`
+
+**Entrée**: une chaîne de caractères représentant un mot de passe => **Sortie**: `vrai` si la chaîne de caractères fait au moins 8 caractères et contient au moins un chiffre, `faux` sinon.
+
+## Fonction `getPasswordStrength`
+
+**Entrée**: une chaîne de caractères représentant un mot de passe => **Sortie**: une chaîne de caractère représentant le niveau de sécurité du mot de passe, en fonction d'un nombre de points. 0 = "Trop faible", 1 = "Faible", 2 = "Moyen", 3 = "Fort. Si le mot de passe fait au moins 8 caractères: +1 point. Si le mot de passe fait au moins 13 caractères: encore +1 point. Si le mot de passe contient au moins un chiffre: +1 point. Si le mot de passe contient au moins une majusucle: +1 point.
