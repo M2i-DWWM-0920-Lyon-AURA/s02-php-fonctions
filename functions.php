@@ -56,15 +56,9 @@ function isPasswordStrong(string $password): bool {
         // Interrompt la fonction et renvoie faux
         return false;
     }
-    // Découpe le mot de passe dans un tableau caractère par caractère
-    $characters = str_split($password);
-    // Pour chaque caractère du mot de passe
-    foreach ($characters as $character) {
-        // Si le caractère est un chiffre
-        if (is_numeric($character)) {
-            // Interrompt la fonction et renvoie vrai
-            return true;
-        }
+    // Si le mot de passe contient au moins un chiffre
+    if (preg_match('/\d/', $password)) {
+        return true;
     }
     // Interrompt la fonction et renvoie faux
     return false;
