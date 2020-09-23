@@ -122,5 +122,6 @@ testFunction('getPasswordStrength', [
     new TestCase("Faible", 'getPasswordStrength', ['Bonjour']),
     new TestCase("Moyen", 'getPasswordStrength', ['BonjourToi']),
     new TestCase("Fort", 'getPasswordStrength', ['Bonjour123']),
-    new TestCase("Fort", 'getPasswordStrength', ['BonjourToutLeMonde'])
+    new TestCase("Fort", 'getPasswordStrength', ['BonjourToutLeMonde']),
+    new TestCase("Fort", 'getPasswordStrength', ['BonjourToutLeMonde123'])
 ]);

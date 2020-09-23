@@ -67,41 +67,41 @@ function getPasswordStrength(string $password): string {
     // Si le mot de passe contient au moins 8 caractères
     if (strlen($password) >= 8) {
         // Ajoute 1 au score
-        $score++;
+
+        // Cette écriture est équivalente aux écritures suivantes:
+        // $score = $score + 1;
+        // $score += 1;
+        $score ++;
     }
     // Si le mot de passe contient au moins 13 caractères
     if (strlen($password) >= 13) {
         // Ajoute 1 au score
-        $score++;
+        $score ++;
     }
     // Si le mot de passe contient au moins un chiffre
     if (preg_match('/\d/', $password)) {
         // Ajoute 1 au score
-        $score++;
+        $score ++;
     }
     // Si le mot de passe contient au moins une majuscule
     if (preg_match('/[A-Z]/', $password)) {
         // Ajoute 1 au score
-        $score++;
+        $score ++;
     }
-    // Si le score est égal à 0
-    if ($score === 0) {
-        // Interrompt la fonction et renvoie "Trop faible"
-        return 'Trop faible';
-    }
-    // Si le score est égal à 1
-    if ($score === 1) {
-        // Interrompt la fonction et renvoie "Faible"
-        return 'Faible';
-    }
-    // Si le score est égal à 2
-    if ($score === 2) {
-        // Interrompt la fonction et renvoie "Moyen"
-        return 'Moyen';
-    }
-    // Si le score est supérieur ou égal à 3
-    if ($score >= 3) {
-        // Interrompt la fonction et renvoie "Fort"
-        return 'Fort';
+
+    // En fonction de la valeur du score, renvoyer la chaîne de
+    // caractères correspondante
+    switch ($score) {
+        case 0:
+            return 'Trop faible';
+        case 1:
+            return 'Faible';
+        case 2:
+            return 'Moyen';
+        case ($score >= 3):
+            return 'Fort';
+        // Si on ne se trouve dans aucun des cas prévus ci-dessus
+        default:
+            return 'Score non prévu';
     }
 }
